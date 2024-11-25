@@ -7,49 +7,16 @@
 #include "PoliceOfficer.h"
 #include "ParkingTicket.h"
 
-int main()
+int main() 
 {
-    string make, model, color, license, name, badgeNumber;
-    int meterMinutes, carMinutes;
+  ParkedCar car("Hyundai", "Sonata", "Silver", "A12345", 350);
+  ParkingMeter meter(60);
+  PoliceOfficer officer("Mark Smith", "B45678");
+  ParkingTicket ticket(car, meter, officer);
 
+  officer.issueTicket(car, meter);
 
-    char again = 'y';
-
-    do
-    {
-        cout << "Enter minutes on meter and car minutes: ";
-        cin >> meterMinutes >> carMinutes;
-        if (meterMinutes - carMinutes < 0)
-        {
-            cout << "Enter make, model, and color of car: ";
-            cin >> make >> model >> color;
-            cout << "Enter owner license number: ";
-            cin >> license;
-
-            cout << "Enter officer's name: ";
-            cin.ignore();
-            getline(cin, name);
-            cout << "Enter officer's badge number: ";
-            cin >> badgeNumber;
-
-            ParkedCar car(make, model, color, license, carMinutes);
-            ParkingMeter meter(meterMinutes);
-            PoliceOfficer officer(name, badgeNumber);
-            ParkingTicket ticket(car, meter, officer);
-
-            cout << endl;
-            ticket.print();
-            cout << endl;
-        }
-        else
-            cout << endl << "No Parking Violation" << endl;
-
-        cout << "Check another vehicle (y/n)?";
-        cin >> again;
-
-    } while (again == 'y');
-
-    return 0;
+  return 0;
 
 }
 

@@ -2,12 +2,12 @@
 class ParkingMeter
 {
 public:
-	void setMinutes(int m) { minutes = m; }
-	int getMinutes() { return minutes;  }
+	void setMinutesPurchased(int m) { minutesPurchased = m; }
+	int getMinutesPurchased() const { return minutesPurchased;  }
 
-	ParkingMeter(int m = 0) : minutes(m) {}
+	ParkingMeter(int m = 0) : minutesPurchased(m) {}
 
 private:
-	int minutes;
+	int minutesPurchased;
 };
 

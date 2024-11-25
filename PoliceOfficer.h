@@ -1,33 +1,20 @@
 #pragma once
 #include <string>
-#include <iostream>
-
+#include "ParkedCar.h"
+#include "ParkingMeter.h"
 using namespace std;
 
-class PoliceOfficer
-{
-public:
-	void setName(string n) { name = n; }
-	void setBadgeNumber(string b) { badgeNumber = b; }
-	string getName() { return name; }
-	string getBadgeNumber() { return badgeNumber; }
-	void print()
-	{
-		cout << "Officer " << name << " Badge Number " << badgeNumber << endl;
-	}
-	bool issueTicket(int minutesParked, int minutesOnMeter)
-	{
-		if (minutesOnMeter - minutesParked < 0)
-			return true;
-		else
-			return false;
-	}
-
-	PoliceOfficer(string nm = "NAME", string bd = "BNUMBER"): name(nm), badgeNumber(bd) {}
-
-
+class PoliceOfficer {
 private:
 	string name;
 	string badgeNumber;
-};
 
+public:
+	string getName() const { return name; }
+	string getBadgeNumber() const { return badgeNumber; }
+
+	//set values for the officer
+	PoliceOfficer(string n = "Name", string bn = "BNumber") : name(n), badgeNumber(bn) {}
+
+	void issueTicket(const ParkedCar& car, const ParkingMeter& meter);
+};

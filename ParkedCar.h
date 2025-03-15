@@ -7,17 +7,18 @@ using namespace std;
 class ParkedCar
 {
 public:
-	void setMake(string m) { make = m; }
-	void setModel(string m) { model = m; }
-	void setLicense(string l) { licenseNumber = l; }
-	void setColor(string c) { color = c;  }
-	void setMinutes(int m) { minutes = m; }
 
-	string getMake() { return make; }
-	string getModel() { return model; }
-	string getLicense() { return licenseNumber; }
-	string getColor() { return color; }
-	int getMinutes() { return minutes;  }
+	void setCar(string mk, string md, string c, string l, int min)
+	{
+		make = mk;
+		model = md;
+		color = c;
+		licenseNumber = l;
+		minutes = min;
+	}
+
+	int getMinutes() { return minutes; }
+
 	void print()
 	{
 		cout << "Vehicle License Number: " << licenseNumber << endl;

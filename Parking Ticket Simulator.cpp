@@ -12,6 +12,9 @@ int main()
     string make, model, color, license, name, badgeNumber;
     int meterMinutes, carMinutes;
 
+    ParkedCar car;
+    ParkingMeter meter;
+    PoliceOfficer officer("Steve Smith", "PD100596");
 
     char again = 'y';
 
@@ -19,30 +22,16 @@ int main()
     {
         cout << "Enter minutes on meter and car minutes: ";
         cin >> meterMinutes >> carMinutes;
-        if (meterMinutes - carMinutes < 0)
-        {
-            cout << "Enter make, model, and color of car: ";
-            cin >> make >> model >> color;
-            cout << "Enter owner license number: ";
-            cin >> license;
+        
+        cout << "Enter make, model, and color of car: ";
+        cin >> make >> model >> color;
+        cout << "Enter owner license number: ";
+        cin >> license;
 
-            cout << "Enter officer's name: ";
-            cin.ignore();
-            getline(cin, name);
-            cout << "Enter officer's badge number: ";
-            cin >> badgeNumber;
-
-            ParkedCar car(make, model, color, license, carMinutes);
-            ParkingMeter meter(meterMinutes);
-            PoliceOfficer officer(name, badgeNumber);
-            ParkingTicket ticket(car, meter, officer);
-
-            cout << endl;
-            ticket.print();
-            cout << endl;
-        }
-        else
-            cout << endl << "No Parking Violation" << endl;
+        car.setCar(make, model, color, license, carMinutes);
+        meter.setMinutes(meterMinutes);
+        officer.setCarInfo(car, meter);
+        officer.writeTicket();
 
         cout << "Check another vehicle (y/n)?";
         cin >> again;

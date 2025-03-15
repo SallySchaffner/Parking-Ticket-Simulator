@@ -18,9 +18,6 @@
     <ClCompile Include="Parking Ticket Simulator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ParkingTicket.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ParkedCar.h">

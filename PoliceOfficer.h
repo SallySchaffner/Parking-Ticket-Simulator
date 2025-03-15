@@ -28,9 +28,8 @@ public:
 		cout << "Officer " << name << " Badge Number " << badgeNumber << endl;
 	}
 
-	PoliceOfficer(string nm = "NAME", string bd = "BNUMBER", 
-		          string mk = "MAKE", string md = "MODEL", string c = "Color", 
-		          string l = "AXXXXX", int cMin = 0, int mMin = 0) : name(nm), badgeNumber(bd), car(mk, md, c, l, cMin), meter(mMin) {};
+
+	PoliceOfficer(ParkedCar& c, ParkingMeter& m, string n = "NAME", string b = "BADGE" ) : name(n), badgeNumber(b), car(c), meter(m) { ; }
 
 	void writeTicket() 
 	{
@@ -53,9 +52,9 @@ public:
 	
 
 private:
-	string name;
-	string badgeNumber;
-	ParkedCar car;
-	ParkingMeter meter;
+	string name = "NAME";
+	string badgeNumber = "BADGE";
+	ParkedCar &car;
+	ParkingMeter &meter;
 };
 

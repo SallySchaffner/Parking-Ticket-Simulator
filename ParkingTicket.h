@@ -42,11 +42,11 @@ public:
 		cout << "Parking Fee: $" << calcParkingFee() << endl;
 	}
 
-	ParkingTicket(ParkedCar c, int m) : car(c), minutes(m) { }
+	ParkingTicket(ParkedCar &c, int m = 0) : car(c), minutes(m) { }
 
 
 private:
-	ParkedCar car;
+	ParkedCar &car;
 	int minutes;
 
 };

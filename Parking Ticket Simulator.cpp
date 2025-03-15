@@ -14,7 +14,7 @@ int main()
 
     ParkedCar car;
     ParkingMeter meter;
-    PoliceOfficer officer("Steve Smith", "PD100596");
+    PoliceOfficer officer(car, meter, "Steve Smith", "PD100596");
 
     char again = 'y';
 
